@@ -3,17 +3,19 @@
 <!doctype html>
     <html>
         <head>
+            <meta charset="UTF-8">
             <title>
                 {% block title %}
-                    My Hello Web App Project
+                    Flower Child Remedies, Inc.
                 {% endblock title %}
             </title>
+            <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
             <link rel="stylesheet" href="{% static 'css/style.css' %}" />
             {% block header %}{% endblock header %}
         </head>
         <body>
             <header>
-                <h1>Hello Web App</h1>
+                <h1>Flower Child Remedies</h1>
                 <nav>
                     <ul>
                         <li><a href="{% url 'home' %}">Home</a></li>
