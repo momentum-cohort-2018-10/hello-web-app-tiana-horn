@@ -10,11 +10,12 @@
     {% block content %}
         {% for product in products %}
         <div class="w-30 mr3 mt3 mb3">
-            <img src="{% static "products/" %}{{ product.imgsrc }}" alt="{{ product.name  }}, {{ product.description }}">
+            <img src="{% static "images/" %}{{ product.imgsrc }}" alt="{{ product.name  }}, {{ product.description }}">
             <h2><a href="{% url 'product_detail' slug=product.slug %}">
                 {{ product.name }}
             </a></h2>
             <p>{{ product.description }}</p>
+            <h2>{{ product.price }}</h>
         {% endfor %}
     {% endblock content %}        
        
