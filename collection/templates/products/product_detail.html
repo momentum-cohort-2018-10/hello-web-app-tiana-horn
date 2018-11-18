@@ -11,6 +11,7 @@
         <h1>{{ product.name }}</h1>
         <p>{{ product.description }}</p>
         <p>{{ product.price }}</p>
+        {% comment %} <div>{{ product.picture }}<div> {% endcomment %}
         <a href="{% url 'edit_product' slug=product.slug %}">
             Edit me!
         </a>

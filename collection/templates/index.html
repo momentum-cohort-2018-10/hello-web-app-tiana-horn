@@ -11,8 +11,11 @@
     {% block content %}
         {% for product in products %}
         <div class="w-30 mr3 mt3 mb3">
-            <img src="{{ static }}{{ product.picture.url }}">
-            {% comment %} alt="{{ product.name  }}, {{ product.description }}" {% endcomment %}
+            {% if product.picture %}
+            <a href="{% url 'product_detail' product_id=product.id %}">
+            <img src="{{ product.picture.url }}" alt="{{ product.name  }}, {{ product.description }}">
+            </a>
+            {% endif %}
             <h2><a href="{% url 'product_detail' slug=product.slug %}">
                 {{ product.name }}
             </a></h2>

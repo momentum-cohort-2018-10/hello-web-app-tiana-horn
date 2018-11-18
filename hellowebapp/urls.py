@@ -19,6 +19,13 @@ from django.views.generic import TemplateView
 from collection import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import path, include
+from django.contrib.auth.views import (
+    password_reset,
+    password_reset_done,
+    password_reset_confirm,
+    password_reset_complete,
+)
 
 urlpatterns = [
     path('', views.index, name='home'),
@@ -32,6 +39,22 @@ urlpatterns = [
         name='product_detail'),
     path('products/<slug>/edit',
         views.edit_product, name='edit_product'),
+    path('accounts/password/reset/', password_reset,
+        {'template_name': 'registration/password_reset_form.html'},
+        name="password_reset"),
+    path('accounts/password/reset/done/',
+        password_reset_done,
+        {'template_name': 'registration/password_reset_done.html'},
+        name="password_reset_done"),
+    path('accounts/password/reset/<uidb64>/<token>/',
+        password_reset_confirm,
+        {'template_name': 'registration/password_reset_confirm.html'},
+        name="password_reset_complete"),
+    path('accounts/password/done',
+        password_reset_complete,
+        {'template_name': 'registration/password_reset_complete.html'},
+        name-"password_reset_complete"),
+    path ('accounts/', include('registration.backends.simple.urls')),
     path('admin/', admin.site.urls),
 ]
 
